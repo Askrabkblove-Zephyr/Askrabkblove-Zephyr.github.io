@@ -10,10 +10,10 @@
 <meta property='og:description' content="时间 2024年11月6日12:58:19\n题目 C++ 1 2 3 4 5 6 7 1. 两数之和 167. 两数之和 II - 输入有序数组 15. 三数之和 2824. 统计和小于目标的下标对数目 16. 最接近的三数之和 18. 四数之和 611. 有效三角形的个数 ">
 <meta property='og:url' content='http://localhost:1313/p/leetcode-%E5%88%B7%E9%A2%98%E8%A1%A8/'>
 <meta property='og:site_name' content='Askrabkblove-Zephyr'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='og:image' content='http://localhost:1313/p/leetcode-%E5%88%B7%E9%A2%98%E8%A1%A8/ts1.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='og:image' content='http://localhost:1313/p/leetcode-%E5%88%B7%E9%A2%98%E8%A1%A8/bg1.png' />
 <meta name="twitter:title" content="leetcode 刷题表">
 <meta name="twitter:description" content="时间 2024年11月6日12:58:19\n题目 C++ 1 2 3 4 5 6 7 1. 两数之和 167. 两数之和 II - 输入有序数组 15. 三数之和 2824. 统计和小于目标的下标对数目 16. 最接近的三数之和 18. 四数之和 611. 有效三角形的个数 "><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='http://localhost:1313/p/leetcode-%E5%88%B7%E9%A2%98%E8%A1%A8/ts1.png' />
+    <meta name="twitter:image" content='http://localhost:1313/p/leetcode-%E5%88%B7%E9%A2%98%E8%A1%A8/bg1.png' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -249,49 +249,17 @@
     </ol>
 </aside>
 
-    <aside class="sidebar right-sidebar sticky">
-        
-            
-                
-    <section class="widget archives">
-        <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <line x1="5" y1="9" x2="19" y2="9" />
-  <line x1="5" y1="15" x2="19" y2="15" />
-  <line x1="11" y1="4" x2="7" y2="20" />
-  <line x1="17" y1="4" x2="13" y2="20" />
-</svg>
-
-
-
-        </div>
-        <h2 class="widget-title section-title">目录</h2>
-        
-        <div class="widget--toc">
-            <nav id="TableOfContents">
-  <ol>
-    <li><a href="#法一-暴力双指针on2">法一、 暴力双指针O(N^2)</a></li>
-    <li><a href="#法二-哈希表重点">法二、 哈希表(重点)</a></li>
-  </ol>
-</nav>
-        </div>
-    </section>
-
-            
-        
-    </aside>
-
+    
 
             <main class="main full-width">
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
             <a href="/p/leetcode-%E5%88%B7%E9%A2%98%E8%A1%A8/">
-                <img src="/p/leetcode-%E5%88%B7%E9%A2%98%E8%A1%A8/ts1_hu13258904513942212279.png"
-                        srcset="/p/leetcode-%E5%88%B7%E9%A2%98%E8%A1%A8/ts1_hu13258904513942212279.png 800w, /p/leetcode-%E5%88%B7%E9%A2%98%E8%A1%A8/ts1_hu12197221118308739404.png 1600w"
+                <img src="/p/leetcode-%E5%88%B7%E9%A2%98%E8%A1%A8/bg1_hu13279368417080277944.png"
+                        srcset="/p/leetcode-%E5%88%B7%E9%A2%98%E8%A1%A8/bg1_hu13279368417080277944.png 800w, /p/leetcode-%E5%88%B7%E9%A2%98%E8%A1%A8/bg1_hu1145139966364817723.png 1600w"
                         width="800" 
-                        height="542" 
+                        height="171" 
                         loading="lazy"
                         alt="Featured image of post leetcode 刷题表" />
                 
@@ -303,12 +271,12 @@
     
     <header class="article-category">
         
-            <a href="/categories/themes/" >
-                Themes
+            <a href="/categories/leetcode/" >
+                Leetcode
             </a>
         
-            <a href="/categories/install/" >
-                Install
+            <a href="/categories/algorithm/" >
+                Algorithm
             </a>
         
     </header>
@@ -370,8 +338,8 @@
 		data-flex-basis="354px"
 	
 ></p>
-<h2 id="法一-暴力双指针on2">法一、 暴力双指针O(N^2)
-</h2><div class="highlight"><div class="chroma">
+<h1 id="法一-暴力双指针on2">法一、 暴力双指针O(N^2)
+</h1><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -407,8 +375,8 @@
 </span></span><span class="line"><span class="cl">};
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="法二-哈希表重点">法二、 哈希表(重点)
-</h2><p><img src="/p/leetcode-%E5%88%B7%E9%A2%98%E8%A1%A8/m2.png"
+</div><h1 id="法二-哈希表重点">法二、 哈希表(重点)
+</h1><p><img src="/p/leetcode-%E5%88%B7%E9%A2%98%E8%A1%A8/m2.png"
 	width="724"
 	height="303"
 	srcset="/p/leetcode-%E5%88%B7%E9%A2%98%E8%A1%A8/m2_hu3831126917925707806.png 480w, /p/leetcode-%E5%88%B7%E9%A2%98%E8%A1%A8/m2_hu4096551509384227055.png 1024w"
@@ -529,106 +497,6 @@
     
 
     
-
-<aside class="related-content--wrapper">
-    <h2 class="section-title">相关文章</h2>
-    <div class="related-content">
-        <div class="flex article-list--tile">
-            
-                
-<article class="has-image">
-    <a href="/p/hexo-install/">
-        
-        
-            <div class="article-image">
-                <img src="/p/hexo-install/hexo.f44acd893c47db3e42dc4e5053ddd6e9_hu13721197885873936364.jpg" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post hexo install"
-                        
-                        data-hash="md5-9ErNiTxH2z5C3E5QU93W6Q==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">hexo install</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/hugo-install/">
-        
-        
-            <div class="article-image">
-                <img src="/p/hugo-install/hugo.75356a1cdf65846e242c15b853fe3c96_hu4439449185918427794.png" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post hugo install"
-                        
-                        data-hash="md5-dTVqHN9lhG4kLBW4U/48lg==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">hugo install</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/centos%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E4%B8%8E%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="/centos-config-install/background.png" loading="lazy" data-key="" data-hash="/centos-config-install/background.png"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">CentOS快速安装与简单配置</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/markdown-syntax-guide/">
-        
-        
-            <div class="article-image">
-                <img src="/p/markdown-syntax-guide/pawel-czerwinski-8uZPynIu-rQ-unsplash.c514d916917173a48a42e0114b469961_hu7626638945853200361.jpg" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post Markdown Syntax Guide"
-                        
-                        data-hash="md5-xRTZFpFxc6SKQuARS0aZYQ==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Markdown Syntax Guide</h2>
-        </div>
-    </a>
-</article>
-
-            
-        </div>
-    </div>
-</aside>
 
      
     
