@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="时间 2024年11月6日12:58:19\n总题目 C++ 1 2 3 4 5 6 7 1. 两数之和 167. 两数之和 II - 输入有序数组 15. 三数之和 16. 最接近的三数之和 18. 四数之和 611. 有效三角形的个数 2824. 统计和小于目标的下标对数目 ">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="时间 2024年11月6日12:58:19\n总题目 C++ 1 2 3 4 5 6 7 1. 两数之和 167. 两数之和 II - 输入有序数组 15. 三数之和 2824. 统计和小于目标的下标对数目 16. 最接近的三数之和 18. 四数之和 611. 有效三角形的个数 ">
 <title>leetcode 两数之和专项（题1）</title>
 
 <link rel='canonical' href='http://localhost:1313/p/leetcode-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%E4%B8%93%E9%A1%B9%E9%A2%981/'>
 
 <link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="leetcode 两数之和专项（题1）">
-<meta property='og:description' content="时间 2024年11月6日12:58:19\n总题目 C++ 1 2 3 4 5 6 7 1. 两数之和 167. 两数之和 II - 输入有序数组 15. 三数之和 16. 最接近的三数之和 18. 四数之和 611. 有效三角形的个数 2824. 统计和小于目标的下标对数目 ">
+<meta property='og:description' content="时间 2024年11月6日12:58:19\n总题目 C++ 1 2 3 4 5 6 7 1. 两数之和 167. 两数之和 II - 输入有序数组 15. 三数之和 2824. 统计和小于目标的下标对数目 16. 最接近的三数之和 18. 四数之和 611. 有效三角形的个数 ">
 <meta property='og:url' content='http://localhost:1313/p/leetcode-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%E4%B8%93%E9%A1%B9%E9%A2%981/'>
 <meta property='og:site_name' content='Askrabkblove-Zephyr'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-11-06T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-11-06T00:00:00&#43;00:00'/><meta property='og:image' content='http://localhost:1313/p/leetcode-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%E4%B8%93%E9%A1%B9%E9%A2%981/bg1.png' />
 <meta name="twitter:title" content="leetcode 两数之和专项（题1）">
-<meta name="twitter:description" content="时间 2024年11月6日12:58:19\n总题目 C++ 1 2 3 4 5 6 7 1. 两数之和 167. 两数之和 II - 输入有序数组 15. 三数之和 16. 最接近的三数之和 18. 四数之和 611. 有效三角形的个数 2824. 统计和小于目标的下标对数目 "><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="时间 2024年11月6日12:58:19\n总题目 C++ 1 2 3 4 5 6 7 1. 两数之和 167. 两数之和 II - 输入有序数组 15. 三数之和 2824. 统计和小于目标的下标对数目 16. 最接近的三数之和 18. 四数之和 611. 有效三角形的个数 "><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='http://localhost:1313/p/leetcode-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%E4%B8%93%E9%A1%B9%E9%A2%981/bg1.png' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
@@ -339,10 +339,10 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1. 两数之和
 </span></span><span class="line"><span class="cl">167. 两数之和 II - 输入有序数组
 </span></span><span class="line"><span class="cl">15. 三数之和
+</span></span><span class="line"><span class="cl">2824. 统计和小于目标的下标对数目 
 </span></span><span class="line"><span class="cl">16. 最接近的三数之和
 </span></span><span class="line"><span class="cl">18. 四数之和 
 </span></span><span class="line"><span class="cl">611. 有效三角形的个数
-</span></span><span class="line"><span class="cl">2824. 统计和小于目标的下标对数目 
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><img src="/p/leetcode-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%E4%B8%93%E9%A1%B9%E9%A2%981/ts1.png"
@@ -524,6 +524,30 @@
             
                 
 <article class="has-image">
+    <a href="/p/leetcode-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%E4%B8%93%E9%A1%B9%E9%A2%9818/">
+        
+        
+            <div class="article-image">
+                <img src="/p/leetcode-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%E4%B8%93%E9%A1%B9%E9%A2%9818/bg1.ccfe10b6b161eb183dc65d0e409d8d6b_hu1242553756043951172.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post leetcode 两数之和专项（题18）"
+                        
+                        data-hash="md5-zP4QtrFh6xg9xl0OQJ2Naw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">leetcode 两数之和专项（题18）</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
     <a href="/p/leetcode-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%E4%B8%93%E9%A1%B9%E9%A2%982824/">
         
         
@@ -613,30 +637,6 @@
 
         <div class="article-details">
             <h2 class="article-title">leetcode 两数之和专项（题16）</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/pat-1001/">
-        
-        
-            <div class="article-image">
-                <img src="/p/pat-1001/bg1.233b47faf58f196133bafc9963eb1a16_hu5187129120533076366.png" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post PAT 1001"
-                        
-                        data-hash="md5-IztH&#43;vWPGWEzuvyZY&#43;saFg==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">PAT 1001</h2>
         </div>
     </a>
 </article>

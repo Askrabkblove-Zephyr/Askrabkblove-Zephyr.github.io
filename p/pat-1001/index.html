@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="时间 2024年11月8日14:42:08\n题目 C++ 1 PAT A 1001 A+B Format 代码1，用控制符输出 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 #include&lt;cstdio&gt; int main() { int a, b, sum; scanf(&#34;%d %d&#34;, &amp;a, &amp;b); sum = a + b; if(sum &lt; 0) {//若和为负数，则先输出一个负号，然后取相反数用正数做接下来的运算 printf(&#34;-&#34;); sum *= -1; } //若和有7位数 if(sum &gt;= 1000000) printf(&#34;%d,%03d,%03d&#34;, sum / 1000000, sum / 1000 % 1000, sum % 1000);//逗号之间的数不足3位要在左边用0补齐 //若和只有4到6位数 else if(sum &gt;= 1000) printf(&#34;%d,%03d&#34;, sum / 1000,sum % 1000); //若和不足4位数 else printf(&#34;%d&#34;, sum); return 0; } 代码2 每隔开3位，插入&rsquo;,&rsquo;，从倒数第3位开始 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 #include &lt;iostream&gt; #include &lt;string&gt; #include &lt;algorithm&gt; #include &lt;sstream&gt; // 用于字符串流操作 // 函数用于格式化数字，使其每三位数字用逗号分隔 std::string formatNumber(int number) { std::string result; bool isNegative = number &lt; 0; number = std::abs(number); // 取绝对值以简化格式化 std::stringstream ss; ss &lt;&lt; number; // 将数字转换为字符串 // 从字符串的末尾开始，每三位添加一个逗号 std::string str = ss.str(); int length = str.length(); for (int i = length - 3; i &gt; 0; i -= 3) { str.insert(i, &#34;,&#34;); } // 如果原始数字是负数，添加负号 if (isNegative) { result = &#34;-&#34; + str; } else { result = str; } return result; } int main() { int a, b; // 读取输入 std::cin &gt;&gt; a &gt;&gt; b; // 计算和 int sum = a + b; // 输出格式化后的和 std::cout &lt;&lt; formatNumber(sum) &lt;&lt; std::endl; return 0; } 一刷总结 1 2 3 4 以上两种方法都是先处理负号，第一种是先打印&#39;-&#39;，然后把数据变成正数，再通过·格式控制符·%3d打印数据，这是直接法。 %03d 0 - 不足3位前面补0 3 - 打印3位 d - 10进制 Decimal 第二种方法，先判断正负，则是从字符串末尾每隔3位插入, 遍历到第二位（数据位），这样可以避免&#39;-,1&#39;这种情况发生，在最后输出&#39;-&#39; + 字符串即可。 ">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="时间 2024年11月8日14:42:08\n题目 C++ 1 PAT A 1001 A+B Format 代码1，用控制符输出 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 #include&lt;cstdio&gt; int main() { int a, b, sum; scanf(&#34;%d %d&#34;, &amp;a, &amp;b); sum = a + b; if(sum &lt; 0) {//若和为负数，则先输出一个负号，然后取相反数用正数做接下来的运算 printf(&#34;-&#34;); sum *= -1; } //若和有7位数 if(sum &gt;= 1000000) printf(&#34;%d,%03d,%03d&#34;, sum / 1000000, sum / 1000 % 1000, sum % 1000);//逗号之间的数不足3位要在左边用0补齐 //若和只有4到6位数 else if(sum &gt;= 1000) printf(&#34;%d,%03d&#34;, sum / 1000,sum % 1000); //若和不足4位数 else printf(&#34;%d&#34;, sum); return 0; } 代码2 每隔开3位，插入&rsquo;,&rsquo;，从倒数第3位开始 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 #include &lt;iostream&gt; #include &lt;string&gt; #include &lt;algorithm&gt; #include &lt;sstream&gt; // 用于字符串流操作 // 函数用于格式化数字，使其每三位数字用逗号分隔 std::string formatNumber(int number) { std::string result; bool isNegative = number &lt; 0; number = std::abs(number); // 取绝对值以简化格式化 std::stringstream ss; ss &lt;&lt; number; // 将数字转换为字符串 // 从字符串的末尾开始，每三位添加一个逗号 std::string str = ss.str(); int length = str.length(); for (int i = length - 3; i &gt; 0; i -= 3) { str.insert(i, &#34;,&#34;); } // 如果原始数字是负数，添加负号 if (isNegative) { result = &#34;-&#34; + str; } else { result = str; } return result; } int main() { int a, b; // 读取输入 std::cin &gt;&gt; a &gt;&gt; b; // 计算和 int sum = a + b; // 输出格式化后的和 std::cout &lt;&lt; formatNumber(sum) &lt;&lt; std::endl; return 0; } 一刷总结 以上两种方法都是先处理负号，第一种是先打印&rsquo;-&rsquo;，然后把数据变成正数，再通过·格式控制符·%3d打印数据，这是直接法。 %03d 0 - 不足3位前面补0 3 - 打印3位 d - 10进制 Decimal\n">
 <title>PAT 1001</title>
 
 <link rel='canonical' href='http://localhost:1313/p/pat-1001/'>
 
 <link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="PAT 1001">
-<meta property='og:description' content="时间 2024年11月8日14:42:08\n题目 C++ 1 PAT A 1001 A+B Format 代码1，用控制符输出 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 #include&lt;cstdio&gt; int main() { int a, b, sum; scanf(&#34;%d %d&#34;, &amp;a, &amp;b); sum = a + b; if(sum &lt; 0) {//若和为负数，则先输出一个负号，然后取相反数用正数做接下来的运算 printf(&#34;-&#34;); sum *= -1; } //若和有7位数 if(sum &gt;= 1000000) printf(&#34;%d,%03d,%03d&#34;, sum / 1000000, sum / 1000 % 1000, sum % 1000);//逗号之间的数不足3位要在左边用0补齐 //若和只有4到6位数 else if(sum &gt;= 1000) printf(&#34;%d,%03d&#34;, sum / 1000,sum % 1000); //若和不足4位数 else printf(&#34;%d&#34;, sum); return 0; } 代码2 每隔开3位，插入&rsquo;,&rsquo;，从倒数第3位开始 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 #include &lt;iostream&gt; #include &lt;string&gt; #include &lt;algorithm&gt; #include &lt;sstream&gt; // 用于字符串流操作 // 函数用于格式化数字，使其每三位数字用逗号分隔 std::string formatNumber(int number) { std::string result; bool isNegative = number &lt; 0; number = std::abs(number); // 取绝对值以简化格式化 std::stringstream ss; ss &lt;&lt; number; // 将数字转换为字符串 // 从字符串的末尾开始，每三位添加一个逗号 std::string str = ss.str(); int length = str.length(); for (int i = length - 3; i &gt; 0; i -= 3) { str.insert(i, &#34;,&#34;); } // 如果原始数字是负数，添加负号 if (isNegative) { result = &#34;-&#34; + str; } else { result = str; } return result; } int main() { int a, b; // 读取输入 std::cin &gt;&gt; a &gt;&gt; b; // 计算和 int sum = a + b; // 输出格式化后的和 std::cout &lt;&lt; formatNumber(sum) &lt;&lt; std::endl; return 0; } 一刷总结 1 2 3 4 以上两种方法都是先处理负号，第一种是先打印&#39;-&#39;，然后把数据变成正数，再通过·格式控制符·%3d打印数据，这是直接法。 %03d 0 - 不足3位前面补0 3 - 打印3位 d - 10进制 Decimal 第二种方法，先判断正负，则是从字符串末尾每隔3位插入, 遍历到第二位（数据位），这样可以避免&#39;-,1&#39;这种情况发生，在最后输出&#39;-&#39; + 字符串即可。 ">
+<meta property='og:description' content="时间 2024年11月8日14:42:08\n题目 C++ 1 PAT A 1001 A+B Format 代码1，用控制符输出 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 #include&lt;cstdio&gt; int main() { int a, b, sum; scanf(&#34;%d %d&#34;, &amp;a, &amp;b); sum = a + b; if(sum &lt; 0) {//若和为负数，则先输出一个负号，然后取相反数用正数做接下来的运算 printf(&#34;-&#34;); sum *= -1; } //若和有7位数 if(sum &gt;= 1000000) printf(&#34;%d,%03d,%03d&#34;, sum / 1000000, sum / 1000 % 1000, sum % 1000);//逗号之间的数不足3位要在左边用0补齐 //若和只有4到6位数 else if(sum &gt;= 1000) printf(&#34;%d,%03d&#34;, sum / 1000,sum % 1000); //若和不足4位数 else printf(&#34;%d&#34;, sum); return 0; } 代码2 每隔开3位，插入&rsquo;,&rsquo;，从倒数第3位开始 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 #include &lt;iostream&gt; #include &lt;string&gt; #include &lt;algorithm&gt; #include &lt;sstream&gt; // 用于字符串流操作 // 函数用于格式化数字，使其每三位数字用逗号分隔 std::string formatNumber(int number) { std::string result; bool isNegative = number &lt; 0; number = std::abs(number); // 取绝对值以简化格式化 std::stringstream ss; ss &lt;&lt; number; // 将数字转换为字符串 // 从字符串的末尾开始，每三位添加一个逗号 std::string str = ss.str(); int length = str.length(); for (int i = length - 3; i &gt; 0; i -= 3) { str.insert(i, &#34;,&#34;); } // 如果原始数字是负数，添加负号 if (isNegative) { result = &#34;-&#34; + str; } else { result = str; } return result; } int main() { int a, b; // 读取输入 std::cin &gt;&gt; a &gt;&gt; b; // 计算和 int sum = a + b; // 输出格式化后的和 std::cout &lt;&lt; formatNumber(sum) &lt;&lt; std::endl; return 0; } 一刷总结 以上两种方法都是先处理负号，第一种是先打印&rsquo;-&rsquo;，然后把数据变成正数，再通过·格式控制符·%3d打印数据，这是直接法。 %03d 0 - 不足3位前面补0 3 - 打印3位 d - 10进制 Decimal\n">
 <meta property='og:url' content='http://localhost:1313/p/pat-1001/'>
 <meta property='og:site_name' content='Askrabkblove-Zephyr'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-11-08T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-11-08T00:00:00&#43;00:00'/><meta property='og:image' content='http://localhost:1313/p/pat-1001/bg1.png' />
 <meta name="twitter:title" content="PAT 1001">
-<meta name="twitter:description" content="时间 2024年11月8日14:42:08\n题目 C++ 1 PAT A 1001 A+B Format 代码1，用控制符输出 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 #include&lt;cstdio&gt; int main() { int a, b, sum; scanf(&#34;%d %d&#34;, &amp;a, &amp;b); sum = a + b; if(sum &lt; 0) {//若和为负数，则先输出一个负号，然后取相反数用正数做接下来的运算 printf(&#34;-&#34;); sum *= -1; } //若和有7位数 if(sum &gt;= 1000000) printf(&#34;%d,%03d,%03d&#34;, sum / 1000000, sum / 1000 % 1000, sum % 1000);//逗号之间的数不足3位要在左边用0补齐 //若和只有4到6位数 else if(sum &gt;= 1000) printf(&#34;%d,%03d&#34;, sum / 1000,sum % 1000); //若和不足4位数 else printf(&#34;%d&#34;, sum); return 0; } 代码2 每隔开3位，插入&rsquo;,&rsquo;，从倒数第3位开始 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 #include &lt;iostream&gt; #include &lt;string&gt; #include &lt;algorithm&gt; #include &lt;sstream&gt; // 用于字符串流操作 // 函数用于格式化数字，使其每三位数字用逗号分隔 std::string formatNumber(int number) { std::string result; bool isNegative = number &lt; 0; number = std::abs(number); // 取绝对值以简化格式化 std::stringstream ss; ss &lt;&lt; number; // 将数字转换为字符串 // 从字符串的末尾开始，每三位添加一个逗号 std::string str = ss.str(); int length = str.length(); for (int i = length - 3; i &gt; 0; i -= 3) { str.insert(i, &#34;,&#34;); } // 如果原始数字是负数，添加负号 if (isNegative) { result = &#34;-&#34; + str; } else { result = str; } return result; } int main() { int a, b; // 读取输入 std::cin &gt;&gt; a &gt;&gt; b; // 计算和 int sum = a + b; // 输出格式化后的和 std::cout &lt;&lt; formatNumber(sum) &lt;&lt; std::endl; return 0; } 一刷总结 1 2 3 4 以上两种方法都是先处理负号，第一种是先打印&#39;-&#39;，然后把数据变成正数，再通过·格式控制符·%3d打印数据，这是直接法。 %03d 0 - 不足3位前面补0 3 - 打印3位 d - 10进制 Decimal 第二种方法，先判断正负，则是从字符串末尾每隔3位插入, 遍历到第二位（数据位），这样可以避免&#39;-,1&#39;这种情况发生，在最后输出&#39;-&#39; + 字符串即可。 "><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="时间 2024年11月8日14:42:08\n题目 C++ 1 PAT A 1001 A+B Format 代码1，用控制符输出 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 #include&lt;cstdio&gt; int main() { int a, b, sum; scanf(&#34;%d %d&#34;, &amp;a, &amp;b); sum = a + b; if(sum &lt; 0) {//若和为负数，则先输出一个负号，然后取相反数用正数做接下来的运算 printf(&#34;-&#34;); sum *= -1; } //若和有7位数 if(sum &gt;= 1000000) printf(&#34;%d,%03d,%03d&#34;, sum / 1000000, sum / 1000 % 1000, sum % 1000);//逗号之间的数不足3位要在左边用0补齐 //若和只有4到6位数 else if(sum &gt;= 1000) printf(&#34;%d,%03d&#34;, sum / 1000,sum % 1000); //若和不足4位数 else printf(&#34;%d&#34;, sum); return 0; } 代码2 每隔开3位，插入&rsquo;,&rsquo;，从倒数第3位开始 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 #include &lt;iostream&gt; #include &lt;string&gt; #include &lt;algorithm&gt; #include &lt;sstream&gt; // 用于字符串流操作 // 函数用于格式化数字，使其每三位数字用逗号分隔 std::string formatNumber(int number) { std::string result; bool isNegative = number &lt; 0; number = std::abs(number); // 取绝对值以简化格式化 std::stringstream ss; ss &lt;&lt; number; // 将数字转换为字符串 // 从字符串的末尾开始，每三位添加一个逗号 std::string str = ss.str(); int length = str.length(); for (int i = length - 3; i &gt; 0; i -= 3) { str.insert(i, &#34;,&#34;); } // 如果原始数字是负数，添加负号 if (isNegative) { result = &#34;-&#34; + str; } else { result = str; } return result; } int main() { int a, b; // 读取输入 std::cin &gt;&gt; a &gt;&gt; b; // 计算和 int sum = a + b; // 输出格式化后的和 std::cout &lt;&lt; formatNumber(sum) &lt;&lt; std::endl; return 0; } 一刷总结 以上两种方法都是先处理负号，第一种是先打印&rsquo;-&rsquo;，然后把数据变成正数，再通过·格式控制符·%3d打印数据，这是直接法。 %03d 0 - 不足3位前面补0 3 - 打印3位 d - 10进制 Decimal\n"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='http://localhost:1313/p/pat-1001/bg1.png' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
@@ -490,21 +490,16 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="一刷总结">一刷总结
-</h1><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">以上两种方法都是先处理负号，第一种是先打印&#39;-&#39;，然后把数据变成正数，再通过·格式控制符·%3d打印数据，这是直接法。
-</span></span><span class="line"><span class="cl">%03d 0 - 不足3位前面补0  3 - 打印3位 d - 10进制 Decimal
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">第二种方法，先判断正负，则是从字符串末尾每隔3位插入, 遍历到第二位（数据位），这样可以避免&#39;-,1&#39;这种情况发生，在最后输出&#39;-&#39; + 字符串即可。
-</span></span></code></pre></td></tr></table>
-</div>
-</div>
+</h1><ol>
+<li>
+<p>以上两种方法都是先处理负号，第一种是先打印&rsquo;-&rsquo;，然后把数据变成正数，再通过·格式控制符·%3d打印数据，这是直接法。
+%03d 0 - 不足3位前面补0  3 - 打印3位 d - 10进制 Decimal</p>
+</li>
+<li>
+<p>第二种方法，先判断正负，则是从字符串末尾每隔3位插入, 遍历到第二位（数据位），这样可以避免&rsquo;-,1&rsquo;这种情况发生，在最后输出&rsquo;-&rsquo; + 字符串即可。</p>
+</li>
+</ol>
+
 </section>
 
 
@@ -537,6 +532,30 @@
     <h2 class="section-title">相关文章</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/leetcode-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%E4%B8%93%E9%A1%B9%E9%A2%9818/">
+        
+        
+            <div class="article-image">
+                <img src="/p/leetcode-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%E4%B8%93%E9%A1%B9%E9%A2%9818/bg1.ccfe10b6b161eb183dc65d0e409d8d6b_hu1242553756043951172.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post leetcode 两数之和专项（题18）"
+                        
+                        data-hash="md5-zP4QtrFh6xg9xl0OQJ2Naw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">leetcode 两数之和专项（题18）</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="has-image">
@@ -629,30 +648,6 @@
 
         <div class="article-details">
             <h2 class="article-title">leetcode 两数之和专项（题16）</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/leetcode-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%E4%B8%93%E9%A1%B9%E9%A2%981/">
-        
-        
-            <div class="article-image">
-                <img src="/p/leetcode-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%E4%B8%93%E9%A1%B9%E9%A2%981/bg1.ccfe10b6b161eb183dc65d0e409d8d6b_hu1242553756043951172.png" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post leetcode 两数之和专项（题1）"
-                        
-                        data-hash="md5-zP4QtrFh6xg9xl0OQJ2Naw==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">leetcode 两数之和专项（题1）</h2>
         </div>
     </a>
 </article>
